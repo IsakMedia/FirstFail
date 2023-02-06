@@ -1,0 +1,79 @@
+
+
+
+body {
+padding:0;
+margin:0;
+font-family: Consolas,monaco,monospace;
+color:white;
+line-height: 1.6em;
+font-size: 1em;
+background-color: #e2dfdf;
+height: 100vh;
+}
+
+
+
+.mainArea {
+display: flex;
+align-items: center;
+justify-content: center;
+height:100%;
+flex-grow:1;
+}
+
+.codeBox {
+ background-color:#24292d;
+ width: 300px;
+ height:300px;
+ padding:20px;
+ border-radius: 5px;
+ 
+ display:flex;
+ align-items: center;
+ justify-content: center;
+ 
+}
+
+
+
+
+
+
+/* coloring spans */
+.statement {
+ color: #c66bf0;
+}
+
+.conditional{
+    color:#91e66d;
+}
+
+.exclam {
+color:#40bdbf;
+}
+
+.log {
+    color:#EDC472;
+
+}
+
+.log::after {
+    content: "\01F973";
+}
+
+.last {
+    color:#EDC472;
+}
+
+a {
+    color:rgb(76, 76, 252);
+}
+
+a:hover {
+    color:#7c8891;
+}
+
+a:active {
+    color:#7c8891;
+}
