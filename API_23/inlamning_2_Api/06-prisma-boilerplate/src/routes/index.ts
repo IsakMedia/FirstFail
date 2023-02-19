@@ -2,9 +2,9 @@ import express from "express"
 import photos from './photo_routes'
 import albums from './album_routes'
 import user from './user_routes'
-// import { login, refresh, register } from '../controllers/user_controller'
+import { login, register } from '../controllers/user_controller'
 // import { validateToken } from '../middlewares/auth/jwt'
-// import { createUserRules } from '../validations/user_rules'
+import { createUserRules } from '../validations/user_rules'
 
 // instantiate a new router
 const router = express.Router()
@@ -50,6 +50,9 @@ router.post('/refresh', /*refresh*/)
  * POST /register
  * Create a user
  */
-router.post('/register', /*createUserRules*/ /*register*/)
+router.post('/register', createUserRules, register)
+
+
+router.post('/profile', /*profile*/)
 
 export default router
