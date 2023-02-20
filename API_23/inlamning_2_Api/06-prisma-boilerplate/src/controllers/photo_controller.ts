@@ -7,7 +7,7 @@ import { validationResult } from 'express-validator'
 import prisma from '../prisma'
 
 // Create a new debug instance
-const debug = Debug('Debug Photos-rest')
+const debug = Debug('Debug, Photo-controller')
 
 /**
  * check if logged in
@@ -24,8 +24,8 @@ export const index = async (req: Request, res: Response) => {
         })
 
     } catch (err) {
-        debug("Error kastat när du försöker hämta alla foton från användaren", err)
-        res.status(500).send({ status: "error", message: "Något blev fel" })
+        debug("Error thrown when trying to find all photos %o: %o", err)
+        res.status(500).send({ status: "error", message: "something went wrong when trying to find all photos" })
     }
 }
 
@@ -86,7 +86,7 @@ export const store = async (req: Request, res: Response) => {
 }
 
 /** check if logged in
- * PATCH and photo to user
+ * PATCH, add photo to album. 
  */
 export const update = async (req: Request, res: Response) => {
     const photoId = Number(req.params.photoId)
@@ -102,13 +102,14 @@ export const update = async (req: Request, res: Response) => {
         return res.status(202).send(Photo)
 
     } catch (err) {
-        return res.status(500).send({ message: "Something went wrong" })
+        return res.status(500).send({ status: "error", message: "Something went wrong" })
     }
 
 }
 
-/** check if logged in
- * DELETE an photo
- */
-export const destroy = async (req: Request, res: Response) => {
+
+// PATCH, add a photo to an album
+
+export const linkPhotoToAlbum = async (req: Request, res: Response) => {
+
 }

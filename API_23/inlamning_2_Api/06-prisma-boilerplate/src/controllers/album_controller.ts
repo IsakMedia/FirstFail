@@ -7,7 +7,7 @@ import { validationResult } from 'express-validator'
 import prisma from '../prisma'
 
 // Create a new debug instance
-const debug = Debug('Debug Album-rest')
+const debug = Debug('Debug, Album-controller')
 
 /**
  * check if logged in
@@ -24,8 +24,8 @@ export const index = async (req: Request, res: Response) => {
         })
 
     } catch (err) {
-        debug("Error kastat när du försöker hämta alla Album på användaren", err)
-        res.status(500).send({ status: "error", message: "Något blev fel" })
+        debug("Error thrown when fetching all albums", err)
+        res.status(500).send({ status: "error", message: "Something went wrong when getin all albums" })
     }
 }
 
@@ -54,7 +54,7 @@ export const show = async (req: Request, res: Response) => {
 
     } catch (err) {
         debug("Error thrown when trying to find an Album with the id %o: %o", req.params.albumId, err)
-        return res.status(404).send({ status: "error", message: "Not found" })
+        return res.status(404).send({ status: "error", message: "Album not found" })
     }
 }
 
@@ -78,7 +78,7 @@ export const store = async (req: Request, res: Response) => {
 
     } catch (err) {
         debug("Error thrown when creating an Album %o: %o", req.body, err)
-        res.status(500).send({ status: "error", message: "Something went wrong" })
+        res.status(500).send({ status: "error", message: "Something went wrong when creating an album" })
     }
 }
 
@@ -99,13 +99,14 @@ export const update = async (req: Request, res: Response) => {
         return res.status(202).send(Album)
 
     } catch (err) {
-        return res.status(500).send({ message: "Something went wrong" })
+        return res.status(500).send({ status: "error", message: "Something went wrong when updating an album" })
     }
 
 }
 
-/** check if logged in
- * DELETE an Album
- */
-export const destroy = async (req: Request, res: Response) => {
+
+// PATCH 
+
+export const linkAlbumtoPhoto = async (req: Request, res: Response) => {
+
 }

@@ -7,7 +7,7 @@ import prisma from '../prisma'
 // import { JwtPayload } from '../types'
 import { createUser, getUserByEmail } from '../services/user_services';
 
-const debug = Debug('prisma-photos:user_controller')
+const debug = Debug('Debug:user_controller')
 
 /**
  * Login a user

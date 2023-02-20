@@ -4,6 +4,9 @@
 import { body } from 'express-validator'
 import { getUserByEmail } from '../services/user_services'
 
+
+
+// register a user
 export const createUserRules = [
     body('first_name').isString().bail().isLength({ min: 3 }),
     body('last_name').isString().bail().isLength({ min: 3 }),
